@@ -5,22 +5,23 @@ namespace RPS
     {
         enum Choice
         {
-            Rock = 0,      // 0
-            Paper = 1,     // 1
-            Scissors = 2   // 2
+            rock,
+            paper,
+            scissors
         }
         static void Main(string[] args)
         {
             var random = (Choice)new Random().Next(0, 3 );
-            var output = random.ToString().ToLower();
+            var output = random.ToString();
             
             var Lose = "Sorry, you lose ;w; maybe git gud lmao";
-            var Win = "Damn you beat the pooter at something, good thing it isn't your wife";
+            var Win = "You win, congratulations! Sorry there's no prize, maybe the prize is what you experienced along the way ^^";
             var Draw = "Oh man, you got a draw, see if there's anything inside :>";
+            var Error = "We've ran into an error, please try again :)";
 
             Console.WriteLine("Please Choose Rock, Paper or Scissors");
-            string response = Console.ReadLine().ToLower();
-
+            string response = Console.ReadLine().ToLower(); //converts user input into a more consistent and usable format
+            
             switch(response)
             {
                 case "rock":
@@ -36,7 +37,7 @@ namespace RPS
                             Console.WriteLine(Win);
                             break;
                         default:
-                            Console.WriteLine("Invalid response, please try again");
+                            Console.WriteLine(Error);
                             break;
                     }
                     break;
@@ -52,6 +53,9 @@ namespace RPS
                         case "scissors":
                             Console.WriteLine(Lose);
                             break;
+                        default:
+                            Console.WriteLine(Error);
+                                break;
                     }
                     break;
                 case "scissors":
@@ -67,12 +71,12 @@ namespace RPS
                             Console.WriteLine(Draw);
                             break;
                         default:
-                            Console.WriteLine("Invalid Input please try again");
-                            break;
+                            Console.WriteLine(Error);
+                                break;
                     }
                 break;
                 default:
-                    Console.WriteLine("Invalid input please try agadin");
+                    Console.WriteLine("Invalid input please try again");
                     break;
             }
         }
